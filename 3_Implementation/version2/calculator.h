@@ -15,7 +15,7 @@
 // Macros declarations
 //Include files
 #include <stdio.h>  // existing library 
-
+#include<math.h>
 // Structure declarations
 struct complex_number{
     int real;
