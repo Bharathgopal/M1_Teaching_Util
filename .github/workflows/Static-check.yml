@@ -1,0 +1,19 @@
+name: Cppcheck
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install
+      run: sudo apt-get install cppcheck
+    - name: Static Analysis
+      run: cppcheck --enable=all 3_Implementation
