@@ -1,4 +1,6 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 const int maxlen = 20;
 
@@ -9,20 +11,13 @@ typedef struct {
   int eage;    
 }employee;
 
-int main(int argc, char* argv[]) {
-  employee_t *ps;
-  ps = create(1001, "Richard", 5000, 20);
-  display(ps);
-  release(ps);  
-  return 0;
-}
 employee* create(int id, char* name, double sal, int age) {
   int namelen = strlen(name);
   int len = namelen > maxlen ? maxlen : namelen;
   employee *ptr = malloc(sizeof(employee));
   ptr->empid=id;
-  strncpy(ptr->ename, name);     //what if namelen > 20
-  ptr->esalary=salary;
+  strncpy(ptr->ename, name, 20);     //what if namelen > 20
+  ptr->esalary=200;
   ptr->eage=age;
 }
 void display(const employee *pc) {
@@ -30,4 +25,11 @@ void display(const employee *pc) {
 }
 void release(employee *ptr) {
   free(ptr);
+}
+int main(int argc, char* argv[]) {
+  employee *ps;
+  ps = create(1001, "Richard", 5000, 20);
+  display(ps);
+  release(ps);  
+  return 0;
 }

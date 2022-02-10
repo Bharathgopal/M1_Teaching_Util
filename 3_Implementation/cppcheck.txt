@@ -1,0 +1,129 @@
+Checking debugging/example1.c ...
+1/20 files checked 0% done
+Checking debugging/example2.c ...
+2/20 files checked 0% done
+Checking debugging/example3.c ...
+debugging/example3.c:5:10: error: Returning pointer to local variable 'val' that will be invalid when returning. [returnDanglingLifetime]
+  return &val;
+         ^
+debugging/example3.c:5:10: note: Address of variable taken here.
+  return &val;
+         ^
+debugging/example3.c:4:7: note: Variable created here.
+  int val=100;
+      ^
+debugging/example3.c:5:10: note: Returning pointer to local variable 'val' that will be invalid when returning.
+  return &val;
+         ^
+3/20 files checked 0% done
+Checking debugging/example4.c ...
+debugging/example4.c:11:8: error: Unmatched '('. Configuration: ''. [syntaxError]
+     if(isVowel(ps[i])
+       ^
+4/20 files checked 0% done
+Checking debugging/example5.c ...
+debugging/example5.c:9:9: style: Unused variable: ps [unusedVariable]
+  char *ps;
+        ^
+5/20 files checked 1% done
+Checking debugging/example6.c ...
+6/20 files checked 1% done
+Checking debugging/example7.c ...
+debugging/example7.c:13:3: error: Uninitialized variable: ps [uninitvar]
+  ps->x=10;
+  ^
+7/20 files checked 1% done
+Checking debugging/example8.c ...
+debugging/example8.c:27:1: error: Memory leak: ptr [memleak]
+}
+^
+debugging/example8.c:21:11: style: Variable 'len' is assigned a value that is never used. [unreadVariable]
+  int len = namelen > maxlen ? maxlen : namelen;
+          ^
+8/20 files checked 2% done
+Checking debugging/example9.c ...
+debugging/example9.c:26:1: error: Memory leak: ptr [memleak]
+}
+^
+debugging/example9.c:20:11: style: Variable 'len' is assigned a value that is never used. [unreadVariable]
+  int len = namelen > maxlen ? maxlen : namelen;
+          ^
+9/20 files checked 3% done
+Checking pointers/1_pointers.c ...
+pointers/1_pointers.c:53:5: portability: %lu in format string (no. 1) requires 'unsigned long' but the argument type is 'size_t {aka unsigned long}'. [invalidPrintfArgType_uint]
+    DEBUG_PRINT("size of char* = %lu, size of int* = %lu, size of complext_t* = %lu\n", sizeof(ptr_char_var), sizeof(ptr_int_var), sizeof(ptr_complex_var));
+    ^
+pointers/1_pointers.c:53:5: portability: %lu in format string (no. 2) requires 'unsigned long' but the argument type is 'size_t {aka unsigned long}'. [invalidPrintfArgType_uint]
+    DEBUG_PRINT("size of char* = %lu, size of int* = %lu, size of complext_t* = %lu\n", sizeof(ptr_char_var), sizeof(ptr_int_var), sizeof(ptr_complex_var));
+    ^
+pointers/1_pointers.c:53:5: portability: %lu in format string (no. 3) requires 'unsigned long' but the argument type is 'size_t {aka unsigned long}'. [invalidPrintfArgType_uint]
+    DEBUG_PRINT("size of char* = %lu, size of int* = %lu, size of complext_t* = %lu\n", sizeof(ptr_char_var), sizeof(ptr_int_var), sizeof(ptr_complex_var));
+    ^
+10/20 files checked 4% done
+Checking pointers/2_pointers.c ...
+11/20 files checked 8% done
+Checking pointers/3_pointers.c ...
+12/20 files checked 12% done
+Checking pointers/4_pointers.c ...
+pointers/4_pointers.c:56:5: error: Memory leak: complex_array [memleak]
+    return;
+    ^
+pointers/4_pointers.c:101:5: error: Memory pointed to by 'complex_array' is freed twice. [doubleFree]
+    free(complex_array);
+    ^
+pointers/4_pointers.c:100:5: note: Memory pointed to by 'complex_array' is freed twice.
+    free(complex_array);
+    ^
+pointers/4_pointers.c:101:5: note: Memory pointed to by 'complex_array' is freed twice.
+    free(complex_array);
+    ^
+13/20 files checked 15% done
+Checking version1/calculator.c ...
+version1/calculator.c:62:12: error: Uninitialized variable: temp [uninitvar]
+    return temp;
+           ^
+version1/calculator.c:60:27: style: Variable 'temp' is not assigned a value. [unassignedVariable]
+    struct complex_number temp;
+                          ^
+14/20 files checked 21% done
+Checking version2/calculator.c ...
+15/20 files checked 22% done
+Checking version2/project_main.c ...
+16/20 files checked 23% done
+Checking version3/src/calculator.c ...
+17/20 files checked 24% done
+Checking version3/src/project_main.c ...
+18/20 files checked 25% done
+Checking version3/src/test_calculator.c ...
+19/20 files checked 27% done
+Checking version3/src/unity.c ...
+20/20 files checked 100% done
+version1/calculator.c:58:0: style: The function 'complex_multiply' is never used. [unusedFunction]
+
+^
+version1/calculator.c:41:0: style: The function 'complex_subtract' is never used. [unusedFunction]
+
+^
+pointers/4_pointers.c:90:0: style: The function 'double_free_problem' is never used. [unusedFunction]
+
+^
+pointers/4_pointers.c:34:0: style: The function 'dynamic_memory_allocation_and_free' is never used. [unusedFunction]
+
+^
+pointers/4_pointers.c:75:0: style: The function 'outof_bound_access_poroblem' is never used. [unusedFunction]
+
+^
+version3/src/test_calculator.c:4:0: style: The function 'setUp' is never used. [unusedFunction]
+
+^
+version3/src/test_calculator.c:8:0: style: The function 'tearDown' is never used. [unusedFunction]
+
+^
+version3/src/test_calculator.c:25:0: style: The function 'test_complex_divide_null' is never used. [unusedFunction]
+
+^
+pointers/4_pointers.c:105:0: style: The function 'wrong_pointer_free_problem' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+

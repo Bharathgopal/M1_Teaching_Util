@@ -1,3 +1,7 @@
 *.o
 *.out
 *.s
+*gcno
+*gcda
+*html
+*gcov
