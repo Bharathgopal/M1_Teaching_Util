@@ -2,7 +2,7 @@
 #<TAB>commands
 
 Build : project_main.c calculator.c
-	gcc project_main.c calculator.c -o Calculator.out
+	gcc project_main.c calculator.c -o Calculator.out -lm
 
 Run : Build
 	./Calculator.out
